@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jake Sims Tech</title>
+  <meta name="description" content="Jake Sims Tech LLC. Documentation.">
+  <style>
+    :root {
+      --sky: #6186c0;
+      --blue: #113d78;
+      --pink: #f6329e;
+      --rose: #dd64b4;
+      --lavender: #cbbbdb;
+      --pale: #e3e0eb;
+      --ink: #090908;
+    }
+    body { background: var(--sky); color: var(--ink); }
+    header { background: var(--blue); color: var(--pale); }
+    h1 { color: var(--ink); background: var(--pink); }
+    nav, header p { background: var(--lavender); color: var(--blue); }
+    a:link { color: var(--blue); background: var(--pale); }
+    a:visited { color: var(--ink); background: var(--rose); }
+    a:hover { color: var(--pink); background: var(--ink); }
+    a:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; }
+    #about { color: var(--pale); }
+    #about h2 { background: var(--pink); color: var(--ink); }
+    #about p { background: var(--pale); color: var(--blue); }
+    #product { color: var(--pale); }
+    #product h2 { background: var(--pink); color: var(--ink); }
+    #product p { background: var(--pale); color: var(--blue); }
+    #contact { color: var(--pale); }
+    #contact h2 { background: var(--blue); color: var(--pale); }
+    #contact p { background: var(--lavender); color: var(--ink); }
+    ::selection { background: var(--pink); color: var(--ink); }
+    /* Terminal hardware over the same mismatched color blocks. */
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 12px; }
+    body {
+      margin: 12px;
+      font-family: "Courier New", monospace;
+      line-height: 1.5;
+      background-color: var(--ink);
+      background-image: linear-gradient(90deg, var(--blue) 1px, transparent 1px);
+      background-size: 64px 100%;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+      background: repeating-linear-gradient(transparent 0 3px, var(--ink) 3px 4px);
+      opacity: .09;
+    }
+    header, main { max-width: 720px; }
+    header { border: 1px solid var(--sky); border-left: 5px solid var(--pink); padding: 12px; }
+    h1 { margin: 10px 0; padding: 0 6px; font-size: clamp(20px, 5vw, 30px); text-transform: uppercase; line-height: 1.3; }
+    header p { width: fit-content; padding: 2px 6px; }
+    a { text-underline-offset: 3px; }
+    a:hover { text-decoration-style: wavy; }
+    .system-label { display: block; font-size: 11px; letter-spacing: .08em; }
+    .banner { border: 1px solid var(--pink); box-shadow: 4px 4px 0 var(--ink); }
+    section { margin-top: 16px; padding: 10px 12px; border: 1px solid var(--sky); border-left: 5px solid var(--blue); }
+    h2 { width: fit-content; margin: 8px 0; padding: 0 6px; font-size: 18px; }
+    section p { padding: 8px; border: 1px dashed var(--blue); }
+    #contact { border-left-color: var(--pink); }
+    #contact p { background: var(--ink); color: var(--lavender); border-color: var(--lavender); }
+    section:target { outline: 1px dashed var(--pink); outline-offset: 3px; }
+    @media (max-width: 400px) {
+      body { margin: 8px; }
+      header, section { padding: 8px; }
+    }
+    body { text-align: center; }
+    header, main { margin-left: auto; margin-right: auto; }
+    h1, h2, header p, .banner { margin-left: auto; margin-right: auto; }
+    .jungle-panel { position: relative; isolation: isolate; overflow: hidden; background: var(--blue) url("assets/jungle-poster.jpg") center / cover; }
+    .jungle-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; pointer-events: none; }
+    .jungle-panel::before { content: ""; position: absolute; inset: 0; background: var(--blue); opacity: .38; z-index: -1; pointer-events: none; }
+    .jungle-panel > .system-label { width: fit-content; margin: 0 auto; padding: 0 4px; background: var(--ink); }
+    .site-title { width: fit-content; }
+    .banner { width: 480px; max-width: 100%; }
+    .banner img { display: block; width: 100%; height: auto; }
+    .banner:hover img { filter: invert(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .jungle-video { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="jungle-panel">
+    <video class="jungle-video" muted loop playsinline preload="none" poster="assets/jungle-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/jungle.mp4"></video>
+    <h1 class="site-title">Jake Sims Tech <s>LLC</s></h1>
+    <p><a href="#about">Documentation</a>  / <a href="#product">Product</a> / <a href="#contact">Contact</a></p>
+    <div class="banner">
+      <img src="assets/jake-sims-documentation-dense.png" alt="Jake Sims Tech" width="480">
+    </div>
+    <div class="unique">private contractor not a limited liability company</div>
+  </header>
+
+  <main>
+    <section id="about" class="jungle-panel">
+      <video class="jungle-video" muted loop playsinline preload="none" poster="assets/jungle-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/jungle.mp4"></video>
+      <h2>Documentation</h2>
+      <p>client training</p>
+      <p>technical manuals</p>
+      <p>customer success</p>
+      <p>interface documentation</p>
+      <p>SOPs</p>
+      <p>knowledge management</p>
+    </section>
+
+    <section id="product" class="jungle-panel">
+      <video class="jungle-video" muted loop playsinline preload="none" poster="assets/jungle-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/jungle.mp4"></video>
+      <h2>Product</h2>
+      <p>Certified Scrum Product Owner (CSPO)</p>
+      <p>product strategy</p>
+      <p>UI/UX</p>
+      <p>interactive system design</p>
+    </section>
+
+    <section id="contact" class="jungle-panel">
+      <video class="jungle-video" muted loop playsinline preload="none" poster="assets/jungle-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/jungle.mp4"></video>
+      <h2>Contact</h2>
+      <p>dev.simsj@gmail.com</p>
+    </section>
+  </main>
+  <script>
+    const videos = document.querySelectorAll('.jungle-video');
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function syncMotion() {
+      videos.forEach(video => {
+        video.muted = true;
+        if (motion.matches) {
+          video.pause();
+        } else {
+          if (!video.getAttribute('src')) video.src = video.dataset.src;
+          video.play().catch(() => {});
+        }
+      });
+    }
+    motion.addEventListener('change', syncMotion);
+    syncMotion();
+  </script>
+</body>
+</html>
