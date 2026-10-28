@@ -86,6 +86,62 @@
       .jungle-video { display: none; }
     }
   </style>
+  
+  <style>
+  html.loading body { visibility: hidden; }
+
+  html.loading::after {
+    content: "...";
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: #090908;
+    color: #f6329e;
+    font-family: monospace;
+  }
+</style>
+
+<script>
+  document.documentElement.classList.add("loading");
+
+  const revealPage = () =>
+    document.documentElement.classList.remove("loading");
+
+  // Reveal anyway if a connection is slow or an asset fails.
+  const loadingTimeout = setTimeout(revealPage, 8000);
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const images = [...document.images].map(img => img.decode());
+
+    // Also load the video posters used as static backgrounds.
+    const posters = [...document.querySelectorAll("video[poster]")]
+      .map(video => {
+        const image = new Image();
+        image.src = video.poster;
+        return image.decode();
+      });
+
+    const reducedMotion =
+      matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const videos = reducedMotion ? [] :
+      [...document.querySelectorAll("video")].map(video =>
+        new Promise(resolve => {
+          if (video.readyState >= 3 || video.error) {
+            resolve();
+            return;
+          }
+          video.addEventListener("canplay", resolve, { once: true });
+          video.addEventListener("error", resolve, { once: true });
+        })
+      );
+
+    await Promise.allSettled([...images, ...posters, ...videos]);
+    clearTimeout(loadingTimeout);
+    revealPage();
+  });
+</script>
 </head>
 <body>
   <header class="jungle-panel">
